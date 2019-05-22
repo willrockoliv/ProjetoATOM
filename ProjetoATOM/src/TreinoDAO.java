@@ -25,7 +25,7 @@ public class TreinoDAO {
 		int prox_id = 0;
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM FTT.TREINO");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.TREINO");
 
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -41,12 +41,12 @@ public class TreinoDAO {
 
 	public ArrayList<TreinoVO> GetTotosTreinosAbertos() {
 
-		ArrayList<TreinoVO> listTreinoVO = new ArrayList<TreinoVO>();
+		ArrayList<TreinoVO> listTreinoVO = new ArrayList<TreinoVO>  ();
 
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.TREINO WHERE AVALIACAO=-1");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.TREINO WHERE AVALIACAO=-1");
 
 			while (rs.next()) {
 
@@ -75,7 +75,7 @@ public class TreinoDAO {
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.TREINO");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.TREINO");
 
 			while (rs.next()) {
 
@@ -102,7 +102,7 @@ public class TreinoDAO {
 		TreinoVO treinoVO = new TreinoVO();
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from FTT.TREINO WHERE ID=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from ATOM.TREINO WHERE ID=?");
 
 			preparedStatement.setLong(1, id);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -128,7 +128,7 @@ public class TreinoDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT * from FTT.TREINO WHERE ID_ALUNO=?");
+					.prepareStatement("SELECT * from ATOM.TREINO WHERE ID_ALUNO=?");
 			preparedStatement.setLong(1, id_aluno);
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -156,7 +156,7 @@ public class TreinoDAO {
 
 		try {
 
-			String sql = "INSERT INTO FTT.TREINO (ID, ID_ALUNO, DATA, DIVISAO, AVALIACAO, VOLUME) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.TREINO (ID, ID_ALUNO, DATA, DIVISAO, AVALIACAO, VOLUME) VALUES(?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 
@@ -184,7 +184,7 @@ public class TreinoDAO {
 		try {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"UPDATE FTT.TREINO ID_ALUNO=?, DATA=?, DIVISAO=?, AVALIACAO=?, VOLUME=? WHERE ID=?");
+					"UPDATE ATOM.TREINO ID_ALUNO=?, DATA=?, DIVISAO=?, AVALIACAO=?, VOLUME=? WHERE ID=?");
 
 			// Parameters start with 1
 			preparedStatement.setInt(1, treinoVO.id_aluno);

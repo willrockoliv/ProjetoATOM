@@ -25,7 +25,7 @@ public class HistoricoExerciciosDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT COUNT(*) AS ID FROM FTT.HIST_EXERCICIO");
+					.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.HIST_EXERCICIO");
 
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -46,7 +46,7 @@ public class HistoricoExerciciosDAO {
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.HIST_EXERCICIO");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.HIST_EXERCICIO");
 
 			while (rs.next()) {
 
@@ -77,7 +77,7 @@ public class HistoricoExerciciosDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT * FROM FTT.HIST_EXERCICIO WHERE ID_ALUNO=?");
+					.prepareStatement("SELECT * FROM ATOM.HIST_EXERCICIO WHERE ID_ALUNO=?");
 
 			preparedStatement.setLong(1, id_aluno);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -108,7 +108,7 @@ public class HistoricoExerciciosDAO {
 	public void Salvar(HistoricoExerciciosVO historicoExerciciosVO) {
 		try {
 
-			String sql = "INSERT INTO FTT.HIST_EXERCICIO (DATA, ID_ALUNO, EXERCICIO, CARGA, SERIES, REPETICOES, DIVISAO, VOLUME, AVALIACAO) VALUES(?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.HIST_EXERCICIO (DATA, ID_ALUNO, EXERCICIO, CARGA, SERIES, REPETICOES, DIVISAO, VOLUME, AVALIACAO) VALUES(?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 

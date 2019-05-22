@@ -27,7 +27,7 @@ public class AlunoDAO {
 		int prox_id = 0;
 		
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM FTT.ALUNO");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.ALUNO");
 
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -48,7 +48,7 @@ public class AlunoDAO {
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.ALUNO WHERE ATIVO=TRUE");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.ALUNO WHERE ATIVO=TRUE");
 
 			while (rs.next()) {
 
@@ -82,7 +82,7 @@ public class AlunoDAO {
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.ALUNO");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.ALUNO");
 
 			while (rs.next()) {
 
@@ -114,7 +114,7 @@ public class AlunoDAO {
 		AlunoVO alunoVO = new AlunoVO();
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from FTT.ALUNO WHERE ID=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from ATOM.ALUNO WHERE ID=?");
 
 			preparedStatement.setLong(1, id);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -144,7 +144,7 @@ public class AlunoDAO {
 
 		try {
 
-			String sql = "INSERT INTO FTT.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 
@@ -175,7 +175,7 @@ public class AlunoDAO {
 		try {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"UPDATE FTT.ALUNO NOME=?, IDADE=?, ENDERECO=?, BAIRRO=?, CIDADE=?, UF=?, CELULAR=?, EMAIL=?, SEXO=?, ATIVO=? WHERE ID=?");
+					"UPDATE ATOM.ALUNO NOME=?, IDADE=?, ENDERECO=?, BAIRRO=?, CIDADE=?, UF=?, CELULAR=?, EMAIL=?, SEXO=?, ATIVO=? WHERE ID=?");
 
 			// Parameters start with 1
 			preparedStatement.setString(2, alunoVO.nome);
@@ -198,7 +198,7 @@ public class AlunoDAO {
 
 	public void Excluir(int id) throws IOException {
 
-		String sql = "DELETE FROM FTT.ALUNO WHERE ID=?";
+		String sql = "DELETE FROM ATOM.ALUNO WHERE ID=?";
 
 		try {
 

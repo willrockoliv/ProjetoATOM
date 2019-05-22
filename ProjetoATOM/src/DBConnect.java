@@ -12,7 +12,7 @@ public class DBConnect {
 		else  {
 		
 			String driver = "com.mysql.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/FTT";
+			String url = "jdbc:mysql://localhost:3306/ATOM";
 			String user="scott";
 			String password="tiger";
 			

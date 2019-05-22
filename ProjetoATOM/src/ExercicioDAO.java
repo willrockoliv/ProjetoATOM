@@ -26,7 +26,7 @@ public class ExercicioDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT COUNT(*) AS ID FROM FTT.EXERCICIO");
+					.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.EXERCICIO");
 
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -47,7 +47,7 @@ public class ExercicioDAO {
 		try {
 
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("SELECT * FROM FTT.EXERCICIO");
+			ResultSet rs = statement.executeQuery("SELECT * FROM ATOM.EXERCICIO");
 
 			while (rs.next()) {
 
@@ -76,7 +76,7 @@ public class ExercicioDAO {
 		ExercicioVO exercicioVO = new ExercicioVO();
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from FTT.EXERCICIO WHERE ID=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from ATOM.EXERCICIO WHERE ID=?");
 
 			preparedStatement.setLong(1, id);
 			ResultSet rs = preparedStatement.executeQuery();
@@ -103,7 +103,7 @@ public class ExercicioDAO {
 		ArrayList<ExercicioVO> listExercicioVO = new ArrayList<ExercicioVO>();
 
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from FTT.EXERCICIO WHERE ID_ALUNO=?");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT * from ATOM.EXERCICIO WHERE ID_ALUNO=?");
 			preparedStatement.setLong(1, id_aluno);
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -135,7 +135,7 @@ public class ExercicioDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT * from FTT.EXERCICIO WHERE DIVISAO=?");
+					.prepareStatement("SELECT * from ATOM.EXERCICIO WHERE DIVISAO=?");
 			preparedStatement.setString(1, divisao);
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -167,7 +167,7 @@ public class ExercicioDAO {
 
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("SELECT DISTINCT DIVISAO from FTT.EXERCICIO WHERE ID=?");
+					.prepareStatement("SELECT DISTINCT DIVISAO from ATOM.EXERCICIO WHERE ID=?");
 			preparedStatement.setLong(1, id_aluno);
 			ResultSet rs = preparedStatement.executeQuery();
 
@@ -188,7 +188,7 @@ public class ExercicioDAO {
 
 		try {
 			
-			String sql = "INSERT INTO FTT.EXERCICIO (ID, ID_ALUNO, EXERCICIO, CARGA, SERIES, REPETICOES, DIVISAO, VOLUME) VALUES(?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.EXERCICIO (ID, ID_ALUNO, EXERCICIO, CARGA, SERIES, REPETICOES, DIVISAO, VOLUME) VALUES(?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 
@@ -218,7 +218,7 @@ public class ExercicioDAO {
 		try {
 
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"UPDATE FTT.ALUNO ID_ALUNO=?, EXERCICIO=?, CARGA=?, SERIES=?, REPETICOES=?, DIVISAO=?, VOLUME=? WHERE ID=?");
+					"UPDATE ATOM.ALUNO ID_ALUNO=?, EXERCICIO=?, CARGA=?, SERIES=?, REPETICOES=?, DIVISAO=?, VOLUME=? WHERE ID=?");
 
 			// Parameters start with 1
 			preparedStatement.setInt(1, exercicioVO.id_aluno);

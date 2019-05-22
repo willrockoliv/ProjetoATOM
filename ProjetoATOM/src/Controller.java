@@ -694,8 +694,10 @@ public class Controller implements Initializable {
 
 	@FXML
 	public void btnCadAlunoAbrirCadastro_Click(ActionEvent actionEvent) {
-		PreencheDadosGerais(listAlunoVO.get(lstCadAlunoPesquisa.getSelectionModel().getSelectedIndex()));
-		PreencheTreino(listAlunoVO.get(lstCadAlunoPesquisa.getSelectionModel().getSelectedIndex()).id);
+		if(lstCadAlunoPesquisa.getSelectionModel().getSelectedIndex() != -1){
+			PreencheDadosGerais(listAlunoVO.get(lstCadAlunoPesquisa.getSelectionModel().getSelectedIndex()));
+			PreencheTreino(listAlunoVO.get(lstCadAlunoPesquisa.getSelectionModel().getSelectedIndex()).id);
+		}
 	}
 
 	@FXML
