@@ -41,7 +41,7 @@ public class TreinoDAO {
 
 	public ArrayList<TreinoVO> GetTotosTreinosAbertos() {
 
-		ArrayList<TreinoVO> listTreinoVO = new ArrayList<TreinoVO>  ();
+		ArrayList<TreinoVO> listTreinoVO = new ArrayList<TreinoVO>();
 
 		try {
 

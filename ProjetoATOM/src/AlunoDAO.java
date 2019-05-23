@@ -27,12 +27,14 @@ public class AlunoDAO {
 		int prox_id = 0;
 		
 		try {
-			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.ALUNO");
+			PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS ID FROM ATOM.ALUNO;");
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			if (rs.next())
-				prox_id = rs.getInt("ID") + 1;
+				prox_id = rs.getInt("ID");
+			
+			System.out.println(prox_id);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -144,7 +146,7 @@ public class AlunoDAO {
 
 		try {
 
-			String sql = "INSERT INTO ATOM.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 
