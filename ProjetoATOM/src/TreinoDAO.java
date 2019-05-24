@@ -193,7 +193,7 @@ public class TreinoDAO {
 			preparedStatement.setInt(4, treinoVO.avaliacao);
 			preparedStatement.setDouble(5, treinoVO.volume);
 
-			preparedStatement.setInt(8, treinoVO.id);
+			preparedStatement.setInt(6, treinoVO.id);
 
 			preparedStatement.executeUpdate();
 

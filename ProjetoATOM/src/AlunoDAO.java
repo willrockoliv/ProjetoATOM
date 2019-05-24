@@ -146,7 +146,7 @@ public class AlunoDAO {
 
 		try {
 
-			String sql = "INSERT INTO ATOM.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATOM.ALUNO (ID, NOME, IDADE, ENDERECO, BAIRRO, CIDADE, UF, CELULAR, EMAIL, SEXO, ATIVO) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
 
@@ -155,10 +155,12 @@ public class AlunoDAO {
 			preparedStatement.setInt(3, alunoVO.idade);
 			preparedStatement.setString(4, alunoVO.endereco);
 			preparedStatement.setString(5, alunoVO.bairro);
-			preparedStatement.setString(6, alunoVO.cidade);
-			preparedStatement.setString(7, alunoVO.email);
-			preparedStatement.setString(8, alunoVO.sexo);
-			preparedStatement.setBoolean(9, alunoVO.ativo);
+			preparedStatement.setString(6, alunoVO.cidade);  
+			preparedStatement.setString(7, alunoVO.uf);
+			preparedStatement.setString(8, alunoVO.celular);
+			preparedStatement.setString(9, alunoVO.email);
+			preparedStatement.setString(10, alunoVO.sexo);
+			preparedStatement.setBoolean(11, alunoVO.ativo);
 
 			preparedStatement.executeUpdate();
 
@@ -180,16 +182,18 @@ public class AlunoDAO {
 					"UPDATE ATOM.ALUNO NOME=?, IDADE=?, ENDERECO=?, BAIRRO=?, CIDADE=?, UF=?, CELULAR=?, EMAIL=?, SEXO=?, ATIVO=? WHERE ID=?");
 
 			// Parameters start with 1
-			preparedStatement.setString(2, alunoVO.nome);
-			preparedStatement.setInt(3, alunoVO.idade);
-			preparedStatement.setString(4, alunoVO.endereco);
-			preparedStatement.setString(5, alunoVO.bairro);
-			preparedStatement.setString(6, alunoVO.cidade);
-			preparedStatement.setString(7, alunoVO.email);
-			preparedStatement.setString(8, alunoVO.sexo);
-			preparedStatement.setBoolean(9, alunoVO.ativo);
+			preparedStatement.setString(1, alunoVO.nome);
+			preparedStatement.setInt(2, alunoVO.idade);
+			preparedStatement.setString(3, alunoVO.endereco);
+			preparedStatement.setString(4, alunoVO.bairro);
+			preparedStatement.setString(5, alunoVO.cidade);
+			preparedStatement.setString(6, alunoVO.uf);
+			preparedStatement.setString(7, alunoVO.celular);
+			preparedStatement.setString(8, alunoVO.email);
+			preparedStatement.setString(9, alunoVO.sexo);
+			preparedStatement.setBoolean(10, alunoVO.ativo);
 
-			preparedStatement.setInt(1, alunoVO.id);
+			preparedStatement.setInt(11, alunoVO.id);
 
 			preparedStatement.executeUpdate();
 

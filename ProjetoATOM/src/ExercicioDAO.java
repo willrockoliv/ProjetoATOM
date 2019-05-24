@@ -187,7 +187,7 @@ public class ExercicioDAO {
 	public void Salvar(ExercicioVO exercicioVO) throws IOException {
 
 		try {
-			
+		
 			String sql = "INSERT INTO ATOM.EXERCICIO (ID, ID_ALUNO, EXERCICIO, CARGA, SERIES, REPETICOES, DIVISAO, VOLUME) VALUES(?,?,?,?,?,?,?,?)";
 
 			PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
